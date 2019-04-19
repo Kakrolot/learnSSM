@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd ">
+	<!-- spring的IOC容器，在加载配置文件时，生成的对象，默认是单例的 -->
+	<!-- <bean id="user" class="pojo.User" scope="singleton"></bean> -->
+	
+	<!-- 多例模式: scope = "prototype" 在进行获取Bean对象时，也就是getBean()方法时才会生成一个对象 -->
+	<!-- <bean id="user" class="pojo.User" scope="prototype"></bean> -->
+	
+	<!-- 懒加载:如果时懒加载lazy inti 为true 为延迟加载
+	                     lazy inti = "false" 为不是延迟加载
+	                     lazy inti = "default" -->
+	<bean id="user" class="pojo.User" lazy-init="false"></bean>
+</beans>
