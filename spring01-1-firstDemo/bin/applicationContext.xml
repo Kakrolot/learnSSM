@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd ">
+	<!-- IOC的控制反转:通过Bean标签的加载完成 -->
+	<!-- id:每一个javaBean都有一个唯一标识，程序员自定义的  -->
+	<!-- class:是 目标类，把创建对象的权力交给spring的类 -->
+	
+	<bean id="hello" class="cn.spring.pojo.Hello"></bean>
+	<!-- 别名标签 -->
+	
+	<!-- alias:别名,程序员自定义的写法 -->
+	<alias name="hello" alias="小白"/>
+	<alias name="hello" alias="小黑"/>
+	<!-- 拓展问题一:两个相同的bean标签,通过id去获取对象  -->
+	<!-- 答案:此时会报错 -->
+	<bean id="helloA" class = "cn.spring.pojo.Hello"></bean>
+	
+	<!-- 拓展问题二:两个class相同的bean标签，通过class类型去获取对象 --> 
+	<bean id="hello1" class="cn.spring.pojo.Hello"></bean>
+	<bean id="hello2" class="cn.spring.pojo.Hello"></bean>
+	
+</beans>
