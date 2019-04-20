@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd ">
+	
+	<!-- 综合运用：使用spring的IOC与DI -->
+	<!-- IOC的使用:就是编写一个bean标签 -->
+	<!-- DI的使用:就是编写一个property -->
+	
+	<bean id="person" class="pojo.Person">
+	     <property name="name" value="贝吉塔"></property>
+	     <property name="age" value="20"></property>
+	</bean>
+	<bean id="personDao" class="dao.PersonDao"></bean>
+	<bean id="personService" class="service.PersonService">
+	     <property name="dao" ref="personDao"></property>	
+	</bean>
+	<bean id="personController" class="controller.PersonController">
+	     <property name="personService" ref="personService"></property>
+	</bean>
+	
+</beans>
