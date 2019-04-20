@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd ">
+	
+	<!-- DI:依赖注入 -->
+	<bean id="user" class="pojo.User">
+	<!-- 使用set方式进行注入值 
+	     name是set方法名的属性
+	 -->
+	<property name="name" value="刘毅"></property>
+	<property name="age" value="10"></property>
+	
+	<!-- 复杂的数据类型 -->
+	<property name="list">
+         <list>
+             <value>谢逊</value>
+             <value>张无忌</value>
+             <value>宋青书</value>
+             <value>成昆</value>
+         </list>
+	</property>
+	
+	<property name="set">
+	     <set>
+	         <value>yyf</value>
+	         <value>yyf</value>
+	     
+	     </set>
+	</property>
+	
+	<property name="map">
+	     <map>
+	         <entry key="1" value="刘毅"></entry>
+	         <entry key="2" value="薛卫卫"></entry>
+	     </map>
+	</property>
+	
+	<!-- 复杂数据类型数组 -->
+	<property name="array">
+	     <array>
+	         <value>宋江</value>
+	         <value>武松</value>
+	         <value>卢俊义</value>
+	     </array>
+	</property>
+	<!-- 复杂数据类型配置文件类型 -->
+	<property name="prop">
+	      <props>
+	          <prop key="jdbc.driver">com.mysql.jdbc.Driver</prop>
+	          <prop key="jdbc.url">jdbc:mysql://localhost:8080</prop>
+	          <prop key="jdbc.username">root</prop>
+	          <prop key="jdbc.password"></prop>
+	      
+	      </props>
+	</property>
+	
+	<!-- 复杂数据类型引用数据类型 user对象需要依赖dog对象 -->
+	<!-- name="dog":setDog()方法中的dog -->
+	<!-- ref="dog":指的是<bean id="dog"/>的id -->
+	<property name="dog" ref="dog"></property>
+	</bean>
+	<!-- 依赖注入dog对象呗user对象依赖 -->
+	<bean id="dog" class="pojo.Dog">
+	<property name="name" value="xiaobai"></property>
+	<property name="age" value="10"></property>
+	
+	</bean>
+	
+	
+	
+</beans>
