@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd ">
+	
+	<!-- DI构造方法的依赖注入 -->
+	<bean id="user" class="pojo.User">
+	     <!-- constructor name="构造方法中的形参名称 "
+	           public User(String name,int age)
+	                             形参指的是String name,int age-->
+	     <constructor-arg index="0" value="刘某" ></constructor-arg>
+	     <constructor-arg index="1" value="10" ></constructor-arg>
+	
+	
+	</bean>
+	
+	
+</beans>
