@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd ">
+	
+	<!-- IOC:控制反转
+	     IOC容器:Spring负责创建对象，并把对象放入map集合中
+	     通过IOC的方式获取对象时，其实是从map中取值
+	     IOC的使用:其实就是一个Bean标签
+	 -->
+	 <!-- DI:依赖注入
+	      DI的注入方式:set方式以及constructor方式
+	                  set方式程序员开发过程中,最为常用
+	                  constructor方式一般用在程序设计阶段
+	  -->
+	 <bean id="dogA" class="pojo.Dog">
+	      <property name="name" value="小白"></property>
+	      <property name="age" value="3"></property>
+	 </bean>
+	 <!--   autowire = "byName" 
+	        1.在加载配置文件时,自动找到user类中的setXXX()的方法
+	        2.spring框架,自动的拆分与匹配setXXX(),获取XXX的ID的值
+	        3.XXX的ID的值，首字母小写后，自动匹配<bean>标签
+	        4.如果没有匹配成功，不会报错，只会注入一个Null
+	        结论：byName是根据id去获取对象的
+	        重要:必须要有set方法
+	        -->  
+	        
+	 <!-- autowire="byType"
+	      1.加载配置文件时，自动找到setXXX(形参)方法中的形参
+	      2.spring框架,自动的解析到形参的class类型
+	      3.拿到class类型 去匹配<bean class="类型"/>标签的class类型，不会报错
+	      结论：byType是通过class 去获取bean对象的
+	      重要:byType必须要有set方法。
+	  -->
+	 <bean id="user" class="pojo.User" autowire="byType">
+	      <!-- <property name="dog" ref="dog"></property> -->
+	 
+	 </bean>
+	
+	
+</beans>
